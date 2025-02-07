@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuning Website</title>
+    <link rel="stylesheet" href="index.css">
+    
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<script>
+    // Show the selected tuning options in the result box
+    function showTuningOptions() {
+        // Get selected values from each dropdown
+        const vehicleType = document.getElementById("vehicleType").value;
+        const manufacturer = document.getElementById("manufacturer").value;
+        const model = document.getElementById("model").value;
+        const year = document.getElementById("year").value;
+        const engine = document.getElementById("engine").value;
+
+        // Check if all fields are selected
+        if (vehicleType === "Select vehicle type" || manufacturer === "Select manufacturer" || model === "Select model" || year === "Select year" || engine === "Select engine") {
+            alert("Please select all options!");
+            return;
+        }
+
+        // Populate the result box with selected values
+        document.getElementById("selectedVehicleType").textContent = "Vehicle Type: " + vehicleType;
+        document.getElementById("selectedManufacturer").textContent = "Manufacturer: " + manufacturer;
+        document.getElementById("selectedModel").textContent = "Model: " + model;
+        document.getElementById("selectedYear").textContent = "Year: " + year;
+        document.getElementById("selectedEngine").textContent = "Engine: " + engine;
+
+        // Show the result box
+        document.getElementById("resultBox").style.display = "block";
+    }
+</script>
+
+<body>
+    
+
+    <header>
+        <div class="logo">
+            <span class="tuning">Tuning</span>
+            <span class="website">Website</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">Call us: +96170403813</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="slide" style="background-image: url('images/newback.jpeg');"></div>
+        <div class="slide" style="background-image: url('images/newbackk.jpeg');"></div>
+        <div class="slide" style="background-image: url('images/newbackkk.png');"></div>
+
+        <div class="nav-arrows">
+            <button class="arrow prev">&#10094;</button>
+            <button class="arrow next">&#10095;</button>
+        </div>
+    </section>
+    <script>
+
+                            
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        nextButton.addEventListener('click', nextSlide);
+        prevButton.addEventListener('click', prevSlide);
+
+        // Auto-slide every 5 seconds
+        setInterval(nextSlide, 4000);
+
+        // Initialize the first slide
+        showSlide(currentIndex);
+    
+     </script>
+ 
+
+         <!-- Services Section -->
+    <section class="services">
+        <div class="service">
+            <i class="fas fa-rocket"></i>
+            <h3>Performance Remaps</h3>
+            <p>If you're after sheer performance, we'll remap your vehicle to get the maximum BHP and torque.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>Fuel Economy Remaps</h3>
+            <p>We'll remap your car to provide better economy, save you money, and also increase performance.</p>
+        </div>
+        <div class="service">
+            <i class="fas fa-tools"></i>
+            <h3>Additional Options</h3>
+            <p>We are able to do DPF removal, EGR removal, speed limit removal, and rev limit removal.</p>
+        </div>
+    </section>
+
+   
+    <!-- Content Section -->
+    <div class="container">
+        <div class="content">
+            <h1>A fully featured website for your tuning business.</h1>
+            <p>
+                If you're in the business of ECU remapping, you know that your website is the face of your business.
+                A well-designed website is essential for conveying your brand message, showcasing your services,
+                and ultimately driving sales. In this article, we'll explore the importance of web design for ECU
+                remapping companies and provide some tips for creating an effective website that will help you
+                stand out from the competition.
+            </p>
+    
+            <h2>Why is Web Design Important for ECU Remapping Companies?</h2>
+            <p>
+                First impressions are everything in business, and in the digital age, your website is often
+                the first point of contact potential customers have with your brand. If your website is poorly
+                designed or difficult to navigate, visitors will quickly lose interest and move on to your competitors.
+                On the other hand, a well-designed website can help establish your brand as trustworthy and professional,
+                making it more likely that visitors will convert into paying customers.
+            </p>
+    
+            <p>
+                In addition to aesthetics, web design also plays a crucial role in user experience. A well-designed website
+                should be easy to navigate, load quickly, and provide visitors with the information they need to make an informed decision
+                about your services. By creating a website that is user-friendly and provides a positive experience, you can increase
+                the chances that visitors will stay on your site longer, explore your services, and ultimately convert into paying customers.
+            </p>
+        </div>
+    
+
+        <!-- Vehicle Search Section -->
+        <div class="vehicle-search">
+            <h3>Vehicle Search</h3>
+            <select id="vehicleType">
+                <option>Select vehicle type</option>
+                <option>Car</option>
+                <option>Truck</option>
+                <option>Motorcycle</option>
+            </select>
+            <select id="manufacturer">
+                <option>Select manufacturer</option>
+                <option>Toyota</option>
+                <option>Ford</option>
+                <option>BMW</option>
+            </select>
+            <select id="model">
+                <option>Select model</option>
+                <option>Camry</option>
+                <option>Focus</option>
+                <option>X5</option>
+            </select>
+            <select id="year">
+                <option>Select year</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+            </select>
+            <select id="engine">
+                <option>Select engine</option>
+                <option>1.6L</option>
+                <option>2.0L</option>
+                <option>3.0L</option>
+            </select>
+            <button class="btn" onclick="showTuningOptions()">View Tuning Options</button>
+        </div>
+
+        <!-- Result Box Section -->
+        <div id="resultBox" style="display:none;">
+            <div class="result-header">
+                <h4>Alfa Romeo 156 1997 &rarr; 2003 1.9JTD</h4>
+                <img src="images/bmw.png" alt="Vehicle Logo">
+            </div>
+            <div class="stats">
+                <div>
+                    <strong>Power:</strong><br>105 &rarr; 135 hp
+                </div>
+                <div>
+                    <strong>Torque:</strong><br>255 &rarr; 310 Nm
+                </div>
+            </div>
+            <div class="options">
+                <strong>Options Available:</strong>
+                <ul>
+                    <li>EGR Disable</li>
+                    <li>DPF Disable</li>
+                    <li>Specific DTC Disable</li>
+                    <li>Speed Limiter Disable</li>
+                    <li>Adblue</li>
+                </ul>
+            </div>
+            <div class="cta">
+                <button>Get a Quote</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTuningOptions() {
+            const vehicleType = document.getElementById("vehicleType").value;
+            const manufacturer = document.getElementById("manufacturer").value;
+            const model = document.getElementById("model").value;
+            const year = document.getElementById("year").value;
+            const engine = document.getElementById("engine").value;
+
+            if (
+                vehicleType === "Select vehicle type" ||
+                manufacturer === "Select manufacturer" ||
+                model === "Select model" ||
+                year === "Select year" ||
+                engine === "Select engine"
+            ) {
+                alert("Please select all options!");
+                return;
+            }
+
+            // Show the result box
+            document.getElementById("resultBox").style.display = "block";
+        }
+    </script>
+
+        
+        
+           
+   <!-- Facebook Section -->
+   <section class="facebook-section">
+    <div class="facebook-content">
+        <div class="facebook-page">
+            <img src="images/connect.png" alt="">
+        </div>
+        <div class="facebook-text">
+            <h2>Connect with us on<br>Facebook</h2>
+            <hr class="red-line">
+        </div>
+    </div>
+</section>
+<section class="logos-section">
+    <h3>We support all major manufacturers including:</h3>
+    <hr class="red-line-center">
+    <div class="logos">
+        <img src="images/bmw.png" alt="BMW">
+        <img src="images/wv.png" alt="Volkswagen">
+        <img src="images/merc.png" alt="Mercedes">
+        <img src="images/audi.png" alt="Audi">
+        <img src="images/ford.png" alt="Ford">
+        <img src="images/alfa.png" alt="Alfa Romeo">
+        <img src="images/lamb.png" alt="Lamborghini">
+        <img src="images/aston.png" alt="Aston Martin">
+        <img src="images/mini.png" alt="Mini">
+        <img src="images/seat.png" alt="Seat">
+        <img src="images/porsche.png" alt="Porsche">
+        <img src="images/cirteon.png" alt="Citroen">
+    </div>
+    
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="footer-wrapper">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <h3 class="logo">Tuning<span class="red">website</span></h3>
+            <p>This is a demo website for a vehicle tuning company.</p>
+         
+            <a href="images/fc.png" class="facebook" target="_blank"></a>
+        </div>
+
+           <!-- Center Section -->
+        <div class="footer-center">
+            <h4>Contact us</h4>
+            <p>+96170403813<br>info@bensky.co.uk</p>
+        </div>
+
+        <div class="footer-menu">
+            <h4>Menu</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="store.html">store</a></li>
+                <li><a href="contact.html">contact</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <h4>Connect with us</h4>
+            <div class="social-icons">
+                <span class="icon-facebook">f</span>
+              
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<a href="#" class="order-button">Order now</a>
+
+
+    
+</div>
+        <div class="floating-buttons">
+            <a href="images/whatsapp.png" class="whatsapp" target="_blank"></a>
+            <a href="images/fc.png" class="facebook" target="_blank"></a>
+        </div>
+
+        <footer class="foo">
+            <p>&copy; Tuning Website - Change cookie preferences</p>
+            <br>
+            <p>WEB DESIGN FOR TUNING COMPANIES:</p>
+            <button>BENSKY</button>
+        </footer>
+              
+        
+
+</body>
+</html>
